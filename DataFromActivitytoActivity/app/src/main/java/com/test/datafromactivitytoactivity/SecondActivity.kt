@@ -1,14 +1,18 @@
-package com.example.listfragment
+package com.test.datafromactivitytoactivity
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 
 class SecondActivity : AppCompatActivity() {
+
+    lateinit var tvName: TextView
+    lateinit var tvEmail: TextView
+    lateinit var tvPhone: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -19,15 +23,17 @@ class SecondActivity : AppCompatActivity() {
             insets
         }
 
-        val fragmentManager: FragmentManager = supportFragmentManager
-        val fragmentTransaction: FragmentTransaction = fragmentManager.beginTransaction()
-        val myCityFragment = MyCityFragment()
+        tvName = findViewById(R.id.textViewName)
+        tvEmail = findViewById(R.id.textViewEmail)
+        tvPhone = findViewById(R.id.textViewPhone)
 
-        val bundle = Bundle()
-        bundle.putInt("position", intent.getIntExtra("position", 0))
-        myCityFragment.arguments = bundle
+        val name = intent.getStringExtra("name")
+        val email = intent.getStringExtra("email")
+        val phone = intent.getLongExtra("phone",0)
 
-        fragmentTransaction.add(R.id.frameLayout, myCityFragment)
-        fragmentTransaction.commit()
+        "Hello $name".also { tvName.text = it }
+        "Your email address is:\n $email".also { tvEmail.text = it }
+        "Your phone number is:\n $phone".also { tvPhone.text = it }
+
     }
-} 
+}
