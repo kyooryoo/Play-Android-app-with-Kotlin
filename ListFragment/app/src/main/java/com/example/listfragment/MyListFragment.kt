@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.ListFragment
 
 class MyListFragment : ListFragment() {
