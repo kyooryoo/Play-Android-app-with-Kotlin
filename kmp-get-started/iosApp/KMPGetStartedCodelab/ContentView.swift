@@ -13,7 +13,12 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, KMP on \(platform()) or \(Platform_iosKt.platform())")
+            Text("KMP on\n" +
+                 "\(platform())\n" +
+                 "\(Platform_iosKt.platform())\n" +
+                 "\(getPlatform().name)\n" +
+                 "\(getFakePlatform().name)\n" +
+                 "\(randomUUID())")
         }
         .padding()
     }

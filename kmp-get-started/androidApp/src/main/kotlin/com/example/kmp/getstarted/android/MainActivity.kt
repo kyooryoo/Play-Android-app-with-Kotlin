@@ -25,7 +25,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.test.shared.getFakePlatform
+import com.test.shared.getPlatform
 import com.test.shared.platform
+import com.test.shared.randomUUID
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +43,10 @@ class MainActivity : ComponentActivity() {
                             .padding(innerPadding),
                         contentAlignment = Alignment.Center,
                     ) {
-                        Text("Hello KMP on ${platform()}")
+                        Text("platform(): ${platform()}" +
+                                "\ngetPlatform(): ${getPlatform().name}" +
+                                "\nrandomUUID(): ${randomUUID()}" +
+                                "\nfakePlatform(): ${getFakePlatform().name}")
                     }
                 }
             }
